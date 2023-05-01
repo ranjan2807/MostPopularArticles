@@ -12,12 +12,21 @@ class ArticleListViewModel {
     var delegate: ArticleListViewModelToCoordinatorProtocol?
     private var articleListRaw: [ArticleListViewDataProtocol]?
     private var dataBindClosure: (([ArticleListViewDataProtocol]) -> Void)?
+    private var dataErrorBindClosure: ((String) -> Void)?
     private var apiService: APIClientProtocol
     
     var data: [ArticleListViewDataProtocol]? {
         didSet {
             if let block = self.dataBindClosure {
                 block(self.data ?? [])
+            }
+        }
+    }
+    
+    private var dataError: String? {
+        didSet {
+            if let block = self.dataErrorBindClosure {
+                block(self.dataError ?? AppError.generic.description)
             }
         }
     }
@@ -43,6 +52,10 @@ extension ArticleListViewModel: ArticleListViewModelProtocol {
         self.dataBindClosure = block
     }
     
+    func bindDataError(_ block: @escaping (String) -> Void) {
+        self.dataErrorBindClosure = block
+    }
+    
     func filterArticleBasedOn(searchText: String) {
         if searchText == "" {
             self.data = self.articleListRaw
@@ -54,9 +67,10 @@ extension ArticleListViewModel: ArticleListViewModelProtocol {
 
 extension ArticleListViewModel {
     private func loadMostPopularArticles() {
-        self.apiService.getArticles { success, responseData, _ in
+        self.apiService.getArticles { success, responseData, errorMsg in
             if !success {
                 self.data = nil
+                self.dataError = errorMsg?.description
             } else {
                 self.articleListRaw = responseData?.results?.map { ArticleViewData(articleRaw: $0) }
                 self.data = self.articleListRaw
