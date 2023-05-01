@@ -1,0 +1,44 @@
+//
+//  ArticleDetailCoordinator.swift
+//  ArticlesTest
+//
+//  Created by Ranjan Patra on 30/04/23.
+//
+
+import Foundation
+
+protocol ArticleDetailViewModelToCoordinatorProtocol {
+    func closeArticleDetail()
+}
+
+class ArticleDetailCoordinator {
+    var childCoordinator: [Coordinator]?
+    
+    private var viewController: ArticleDetailViewController
+    private var model: ArticleViewDataProtocol
+    private var dismissClosure: (Coordinator) -> Void
+    
+    init(with viewController: ArticleDetailViewController,
+         article: ArticleViewDataProtocol,
+         _ dismiss: @escaping (Coordinator) -> Void
+    ) {
+        self.viewController = viewController
+        self.model = article
+        self.dismissClosure = dismiss
+    }
+}
+
+extension ArticleDetailCoordinator: Coordinator {
+    func start() {
+        let viewModel = ArticleDetailViewModel(data: self.model, coordinator: self)
+        self.viewController.viewModel = viewModel
+    }
+}
+
+extension ArticleDetailCoordinator: ArticleDetailViewModelToCoordinatorProtocol {
+    func closeArticleDetail() {
+        self.viewController.dismiss(animated: true) {
+            self.dismissClosure(self)
+        }
+    }
+}

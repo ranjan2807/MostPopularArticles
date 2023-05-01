@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  ArticlesTest
+
+  Created by Ranjan Patra on 29/04/23.
+  
+*/
+
+"article_list_header" = "NY Times Most Popular";
+"author_list_prefix_by" = "By";
+"network_generic_error" = "Something went wrong";
