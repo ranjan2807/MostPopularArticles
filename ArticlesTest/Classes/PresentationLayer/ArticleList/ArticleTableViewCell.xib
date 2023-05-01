@@ -24,31 +24,23 @@
                             <constraint firstAttribute="width" secondItem="eHd-Fp-Sa2" secondAttribute="height" multiplier="1:1" id="Epc-Lu-qUm"/>
                         </constraints>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.forward" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="UQn-Vn-fL7">
-                        <rect key="frame" x="289" y="44.666666666666664" width="15" height="11.333333333333336"/>
-                        <color key="tintColor" name="text1"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="15" id="48Q-tq-mbs"/>
-                            <constraint firstAttribute="width" constant="15" id="bc2-yy-nkU"/>
-                        </constraints>
-                    </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lXu-Ha-l8y">
-                        <rect key="frame" x="91" y="10" width="189" height="80"/>
+                        <rect key="frame" x="91" y="10" width="213" height="80"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Label Label Label Label Label Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iFb-sF-nme">
-                                <rect key="frame" x="0.0" y="0.0" width="189" height="33.666666666666664"/>
+                                <rect key="frame" x="0.0" y="0.0" width="213" height="33.666666666666664"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" name="text1"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Label Label Label Label Label Label Label Label Label Label Label Label Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="plq-rh-L5L">
-                                <rect key="frame" x="0.0" y="41.666666666666664" width="189" height="13.333333333333336"/>
+                                <rect key="frame" x="0.0" y="41.666666666666664" width="213" height="13.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" name="text2"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Label Label Label Label Label " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Asl-2l-Nhq">
-                                <rect key="frame" x="-1" y="65" width="190" height="15"/>
+                                <rect key="frame" x="23" y="65" width="190" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="QbS-dm-mzg"/>
                                 </constraints>
@@ -57,7 +49,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mfz-zc-gFi">
-                                <rect key="frame" x="-21" y="66.666666666666657" width="15" height="12"/>
+                                <rect key="frame" x="3" y="66.666666666666657" width="15" height="12"/>
                                 <color key="tintColor" name="text2"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mfz-zc-gFi" secondAttribute="height" multiplier="1:1" id="9zH-Z8-dRN"/>
@@ -85,10 +77,8 @@
                     <constraint firstItem="lXu-Ha-l8y" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="BbT-ll-z49"/>
                     <constraint firstItem="eHd-Fp-Sa2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Bvj-Ha-idf"/>
                     <constraint firstItem="lXu-Ha-l8y" firstAttribute="leading" secondItem="eHd-Fp-Sa2" secondAttribute="trailing" constant="15" id="Mwo-6a-Bnr"/>
-                    <constraint firstAttribute="trailing" secondItem="UQn-Vn-fL7" secondAttribute="trailing" constant="16" id="Pub-HF-z0B"/>
                     <constraint firstItem="eHd-Fp-Sa2" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.6" id="YiS-cd-OiG"/>
-                    <constraint firstItem="UQn-Vn-fL7" firstAttribute="centerY" secondItem="eHd-Fp-Sa2" secondAttribute="centerY" id="bla-aH-SeV"/>
-                    <constraint firstAttribute="trailing" secondItem="lXu-Ha-l8y" secondAttribute="trailing" constant="40" id="p0f-Ld-1k7"/>
+                    <constraint firstAttribute="trailing" secondItem="lXu-Ha-l8y" secondAttribute="trailing" constant="16" id="p0f-Ld-1k7"/>
                     <constraint firstItem="lXu-Ha-l8y" firstAttribute="centerY" secondItem="eHd-Fp-Sa2" secondAttribute="centerY" id="tAH-GQ-z7d"/>
                     <constraint firstItem="eHd-Fp-Sa2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="yXW-ec-VLJ"/>
                 </constraints>
@@ -105,7 +95,6 @@
     </objects>
     <resources>
         <image name="calendar" catalog="system" width="128" height="107"/>
-        <image name="chevron.forward" catalog="system" width="97" height="128"/>
         <namedColor name="background">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
