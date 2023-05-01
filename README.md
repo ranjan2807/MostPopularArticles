@@ -1,7 +1,7 @@
 # Most Popular Articles
 iOS App to display NYTimes Most Popular Articles
 
-Installation Steps:
+#Installation Steps:#
 1. Checkout the lastest code from 'main' branch into your local machine
 2. Open Terminal and navigate to the checked out project path using cd <path of the directory> command
 3. Run "pod install" command. Wait for command to complete the execution
