@@ -8,12 +8,11 @@
 import Foundation
 
 class ArticleListViewModel {
-//    typealias T = [ArticleModel]
-    var delegate: ArticleListViewModelToCoordinatorProtocol?
+    weak var delegate: ArticleListViewModelToCoordinatorProtocol?
     private var articleListRaw: [ArticleListViewDataProtocol]?
     private var dataBindClosure: (([ArticleListViewDataProtocol]) -> Void)?
     private var dataErrorBindClosure: ((String) -> Void)?
-    private var apiService: APIClientProtocol
+    private var articleRepo: RepositoryProtocol
     
     var data: [ArticleListViewDataProtocol]? {
         didSet {
@@ -31,9 +30,12 @@ class ArticleListViewModel {
         }
     }
     
-    init(with coordinator: ArticleListViewModelToCoordinatorProtocol, apiService: APIClientProtocol) {
+    init(
+        with coordinator: ArticleListViewModelToCoordinatorProtocol,
+        repoService: RepositoryProtocol
+    ) {
         self.delegate = coordinator
-        self.apiService = apiService
+        self.articleRepo = repoService
     }
 }
 
@@ -67,7 +69,7 @@ extension ArticleListViewModel: ArticleListViewModelProtocol {
 
 extension ArticleListViewModel {
     private func loadMostPopularArticles() {
-        self.apiService.getArticles { success, responseData, errorMsg in
+        self.articleRepo.fetch { success, responseData, errorMsg in
             if !success {
                 self.data = nil
                 self.dataError = errorMsg?.description

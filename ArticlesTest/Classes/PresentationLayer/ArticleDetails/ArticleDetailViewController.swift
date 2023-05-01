@@ -16,7 +16,7 @@ class ArticleDetailViewController: UIViewController {
     @IBOutlet weak var lblAbstract: UILabel!
     @IBOutlet weak var lblAuthors: UILabel!
     
-    var viewModel: ArticleDetailViewModelProtocol?
+    var viewModel: (any ArticleDetailViewModelProtocol)?
     
     override func viewDidLoad() {
         super.viewDidLoad()

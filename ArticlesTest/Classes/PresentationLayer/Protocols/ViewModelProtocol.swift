@@ -6,16 +6,12 @@
 //
 
 import Foundation
-/*
+
 protocol ViewModelProtocol {
     associatedtype T
     var data: T? { get set }
-    func bindData(_ block: @escaping (T) -> ())
+    func bindData(_ block: @escaping (T) -> Void)
     func loadData()
-}
- */
-
-protocol ViewModelProtocol {
 }
 
 protocol ArticleListViewModelProtocol: ViewModelProtocol {

@@ -17,7 +17,7 @@ enum AppError {
 
 extension AppError: CustomStringConvertible {
     var description: String {
-        let prefixStr = "Oh No! Error, "
+        let prefixStr = localizedStringForKey("toast_error_prefix") + ", "
         
         switch self {
         case .invalidURL:
