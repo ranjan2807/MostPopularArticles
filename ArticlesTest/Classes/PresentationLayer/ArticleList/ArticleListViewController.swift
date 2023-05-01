@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import Toast_Swift
 
 class ArticleListViewController: UIViewController {
 
@@ -35,6 +36,8 @@ class ArticleListViewController: UIViewController {
     
     private func bindUI() {
         guard let viewModel = viewModel else { return }
+        
+        /// Update table view whenever there is change in article list
         viewModel.bindData { [weak self] _ in
             guard let self = self else { return }
             
@@ -44,6 +47,14 @@ class ArticleListViewController: UIViewController {
                 if self.loader.isAnimating {
                     self.loader.stopAnimating()
                 }
+            }
+        }
+        
+        /// Show error
+        viewModel.bindDataError { [weak self] error in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.view.makeToast(error)
             }
         }
     }

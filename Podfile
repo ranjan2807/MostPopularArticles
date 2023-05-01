@@ -8,6 +8,7 @@ target 'ArticlesTest' do
   # Pods for ArticlesTest
   pod 'Kingfisher', '7.6.2'
   pod 'SwiftLint', '0.51.0'
+  pod 'Toast-Swift', '5.0.1'
 
   target 'ArticlesTestTests' do
     inherit! :search_paths
