@@ -62,7 +62,14 @@ extension ArticleListViewModel: ArticleListViewModelProtocol {
         if searchText == "" {
             self.data = self.articleListRaw
         } else {
-            self.data = self.articleListRaw?.filter { $0.contains(searchText: searchText) }
+            if let searchedData = self.articleListRaw?
+                .filter({ $0.contains(searchText: searchText) }),
+            !searchedData.isEmpty {
+                self.data = searchedData
+            } else {
+                self.data = nil
+                self.dataError = AppError.noDataFound.description
+            }
         }
     }
 }
@@ -74,7 +81,7 @@ extension ArticleListViewModel {
                 self.data = nil
                 self.dataError = errorMsg?.description
             } else {
-                self.articleListRaw = responseData?.results?.map { ArticleViewData(articleRaw: $0) }
+                self.articleListRaw = responseData?.map { ArticleViewData(articleRaw: $0) }
                 self.data = self.articleListRaw
             }
         }

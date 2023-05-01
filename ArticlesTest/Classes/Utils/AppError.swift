@@ -12,6 +12,7 @@ enum AppError {
     case noNetwork
     case error(String?)
     case parseError(String?)
+    case noDataFound
     case generic
 }
 
@@ -30,6 +31,8 @@ extension AppError: CustomStringConvertible {
             return prefixStr +
             localizedStringForKey("parse_error") + " " +
             (errorStr ?? localizedStringForKey("network_generic_error"))
+        case .noDataFound:
+            return prefixStr + localizedStringForKey("empty_data_error")
         case .generic:
             return prefixStr + localizedStringForKey("network_generic_error")
         }
