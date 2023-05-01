@@ -19,16 +19,16 @@ protocol ViewModelProtocol {
 }
 
 protocol ArticleListViewModelProtocol: ViewModelProtocol {
-    var data: [ArticleViewDataProtocol]? { get set }
-    func openArticleDetail(with article: ArticleViewDataProtocol)
+    var data: [ArticleListViewDataProtocol]? { get set }
+    func openArticleDetail(with article: ArticleListViewDataProtocol)
     func filterArticleBasedOn(searchText: String)
-    func bindData(_ block: @escaping ([ArticleViewDataProtocol]) -> Void)
+    func bindData(_ block: @escaping ([ArticleListViewDataProtocol]) -> Void)
     func loadData()
 }
 
 protocol ArticleDetailViewModelProtocol: ViewModelProtocol {
     func closeScreen()
-    var data: ArticleViewDataProtocol? { get set }
-    func bindData(_ block: @escaping (ArticleViewDataProtocol) -> Void)
+    var data: ArticleDetailViewDataProtocol? { get set }
+    func bindData(_ block: @escaping (ArticleDetailViewDataProtocol) -> Void)
     func loadData()
 }

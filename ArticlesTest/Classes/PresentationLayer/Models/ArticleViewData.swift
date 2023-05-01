@@ -7,20 +7,26 @@
 
 import Foundation
 
-protocol ArticleViewDataProtocol {
+protocol ArticleListViewDataProtocol {
     var id: String { get }
     var title: String { get }
     var thumbnailURL: URL? { get }
-    var imageURL: URL? { get }
     var authors: String { get }
-    var abstract: String { get }
-    var htmlURL: URL? { get }
     var keywords: String { get }
     var facet: String { get }
-    var caption: String { get }
     var publishedDate: String { get }
     
     func contains(searchText: String) -> Bool
+}
+
+protocol ArticleDetailViewDataProtocol {
+    var id: String { get }
+    var imageURL: URL? { get }
+    var abstract: String { get }
+    var caption: String { get }
+    var authors: String { get }
+    var htmlURL: URL? { get }
+    var title: String { get }
 }
 
 struct ArticleViewData {
@@ -31,7 +37,7 @@ struct ArticleViewData {
     }
 }
 
-extension ArticleViewData: ArticleViewDataProtocol {
+extension ArticleViewData: ArticleListViewDataProtocol, ArticleDetailViewDataProtocol {
     var id: String {
         if let idTemp = articleRaw.id {
             return String(idTemp)

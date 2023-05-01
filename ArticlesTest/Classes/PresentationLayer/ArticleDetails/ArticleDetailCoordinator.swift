@@ -15,11 +15,11 @@ class ArticleDetailCoordinator {
     var childCoordinator: [Coordinator]?
     
     private var viewController: ArticleDetailViewController
-    private var model: ArticleViewDataProtocol
+    private var model: ArticleDetailViewDataProtocol
     private var dismissClosure: (Coordinator) -> Void
     
     init(with viewController: ArticleDetailViewController,
-         article: ArticleViewDataProtocol,
+         article: ArticleDetailViewDataProtocol,
          _ dismiss: @escaping (Coordinator) -> Void
     ) {
         self.viewController = viewController

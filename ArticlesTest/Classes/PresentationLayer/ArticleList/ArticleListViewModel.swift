@@ -10,11 +10,11 @@ import Foundation
 class ArticleListViewModel {
 //    typealias T = [ArticleModel]
     var delegate: ArticleListViewModelToCoordinatorProtocol?
-    private var articleListRaw: [ArticleViewDataProtocol]?
-    private var dataBindClosure: (([ArticleViewDataProtocol]) -> Void)?
+    private var articleListRaw: [ArticleListViewDataProtocol]?
+    private var dataBindClosure: (([ArticleListViewDataProtocol]) -> Void)?
     private var apiService: APIClientProtocol
     
-    var data: [ArticleViewDataProtocol]? {
+    var data: [ArticleListViewDataProtocol]? {
         didSet {
             if let block = self.dataBindClosure {
                 block(self.data ?? [])
@@ -33,13 +33,13 @@ extension ArticleListViewModel: ArticleListViewModelProtocol {
         loadMostPopularArticles()
     }
     
-    func openArticleDetail(with article: ArticleViewDataProtocol) {
+    func openArticleDetail(with article: ArticleListViewDataProtocol) {
         if let delegate = self.delegate {
             delegate.openArticleDetail(with: article)
         }
     }
     
-    func bindData(_ block: @escaping ([ArticleViewDataProtocol]) -> Void) {
+    func bindData(_ block: @escaping ([ArticleListViewDataProtocol]) -> Void) {
         self.dataBindClosure = block
     }
     

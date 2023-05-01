@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ArticleListViewModelToCoordinatorProtocol {
-    func openArticleDetail(with model: ArticleViewDataProtocol)
+    func openArticleDetail(with model: ArticleListViewDataProtocol)
 }
 
 class ArticleListCoordinator {
@@ -29,8 +29,10 @@ extension ArticleListCoordinator: Coordinator {
 }
 
 extension ArticleListCoordinator: ArticleListViewModelToCoordinatorProtocol {
-    func openArticleDetail(with model: ArticleViewDataProtocol) {
+    func openArticleDetail(with model: ArticleListViewDataProtocol) {
         guard let viewController = ArticleDetailViewController.initialize() else { return }
+        
+        guard let model = model as? ArticleDetailViewDataProtocol else { return }
         
         let coordinator = ArticleDetailCoordinator(
             with: viewController, article: model
