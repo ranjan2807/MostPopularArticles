@@ -64,12 +64,11 @@ extension ArticleDetailViewController {
     }
 }
 
-extension ArticleDetailViewController {
+extension ArticleDetailViewController: StoryboardInitializable {
     static func initialize() -> ArticleDetailViewController? {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let viewController = storyboard.instantiateViewController(
-            withIdentifier: "ArticleDetailViewController"
-        ) as? ArticleDetailViewController else { return nil }
+        guard let viewController = ArticleDetailViewController
+            .instantiateViewController() as? ArticleDetailViewController
+        else { return nil }
         
         return viewController
     }

@@ -32,7 +32,7 @@ extension MostPopularArticlesRepository {
             
             guard let data = apiData,
                   let dataStr = String(data: data, encoding: .utf8) else {
-                print("Something went wrong")
+                print(AppError.generic)
                 completionBlock(false, nil, .generic)
                 return
             }
