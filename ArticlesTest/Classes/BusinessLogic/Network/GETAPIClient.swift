@@ -34,7 +34,7 @@ extension GETAPIClient: APIClientProtocol {
             
             guard let response = response as? HTTPURLResponse,
                   200..<300 ~= response.statusCode else {
-                print("Something went wrong")
+                print(AppError.generic)
                 completionBlock(false, nil, .generic)
                 return
             }

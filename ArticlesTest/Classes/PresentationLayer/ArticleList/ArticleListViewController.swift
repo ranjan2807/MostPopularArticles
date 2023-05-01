@@ -133,12 +133,11 @@ extension ArticleListViewController: UISearchBarDelegate {
     }
 }
 
-extension ArticleListViewController {
+extension ArticleListViewController: StoryboardInitializable {
     static func initialize() -> ArticleListViewController? {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let viewController = storyboard.instantiateViewController(
-            withIdentifier: "ArticleListViewController"
-        ) as? ArticleListViewController else { return nil }
+        guard let viewController = ArticleListViewController
+            .instantiateViewController() as? ArticleListViewController
+        else { return nil }
         
         return viewController
     }
