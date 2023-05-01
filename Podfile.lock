@@ -6,7 +6,7 @@ PODS:
 DEPENDENCIES:
   - Kingfisher (= 7.6.2)
   - SwiftLint (= 0.51.0)
-  - Toast-Swift
+  - Toast-Swift (= 5.0.1)
 
 SPEC REPOS:
   trunk:
@@ -19,6 +19,6 @@ SPEC CHECKSUMS:
   SwiftLint: 1b7561918a19e23bfed960e40759086e70f4dba5
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
 
-PODFILE CHECKSUM: 296d1de4cc9880139b7b393edeccffc6b3de53a3
+PODFILE CHECKSUM: b397be68a2e821332c1220522844865f48b2fd2b
 
 COCOAPODS: 1.11.3

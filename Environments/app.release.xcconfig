@@ -1,0 +1,25 @@
+//
+//  app.release.xcconfig
+//  ArticlesTest
+//
+//  Created by Ranjan Patra on 01/05/23.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "Pods/Target Support Files/Pods-ArticlesTest/Pods-ArticlesTest.release.xcconfig"
+
+PRODUCT_BUNDLE_IDENTIFIER = com.test.articles
+
+BUNDLE_DISPLAY_NAME = Articles
+
+MARKETING_VERSION = 1.0
+
+NETWORK_PROTOCOL = http
+
+BASE_URL = api.nytimes.com
+
+MOST_POPULAR_ARTICLES_ENDPOINT = /svc/mostpopular/v2/mostviewed/all-sections/7.json
+
+API_KEY =

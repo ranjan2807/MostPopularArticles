@@ -1,0 +1,26 @@
+//
+//  app.debug.xcconfig
+//  ArticlesTest
+//
+//  Created by Ranjan Patra on 01/05/23.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "Pods/Target Support Files/Pods-ArticlesTest/Pods-ArticlesTest.debug.xcconfig"
+
+
+PRODUCT_BUNDLE_IDENTIFIER = com.test.articles.debug
+
+BUNDLE_DISPLAY_NAME = Articles-Debug
+
+MARKETING_VERSION = 0.9
+
+NETWORK_PROTOCOL = http
+
+BASE_URL = api.nytimes.com
+
+MOST_POPULAR_ARTICLES_ENDPOINT = /svc/mostpopular/v2/mostviewed/all-sections/7.json
+
+API_KEY = 
