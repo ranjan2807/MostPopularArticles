@@ -10,12 +10,12 @@ import Foundation
 class ArticleDetailViewModel {
 //    typealias T = ArticleModel
     
-    var data: ArticleViewDataProtocol?
-    private var bindDataClosure: ((ArticleViewDataProtocol) -> Void)?
+    var data: ArticleDetailViewDataProtocol?
+    private var bindDataClosure: ((ArticleDetailViewDataProtocol) -> Void)?
     var delegate: ArticleDetailViewModelToCoordinatorProtocol?
     
     init(
-        data: ArticleViewDataProtocol,
+        data: ArticleDetailViewDataProtocol,
         coordinator: ArticleDetailViewModelToCoordinatorProtocol
     ) {
         self.data = data
@@ -24,7 +24,7 @@ class ArticleDetailViewModel {
 }
 
 extension ArticleDetailViewModel: ArticleDetailViewModelProtocol {
-    func bindData(_ block: @escaping (ArticleViewDataProtocol) -> Void) {
+    func bindData(_ block: @escaping (ArticleDetailViewDataProtocol) -> Void) {
         self.bindDataClosure = block
     }
     
