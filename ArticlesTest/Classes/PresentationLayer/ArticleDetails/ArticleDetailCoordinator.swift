@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ArticleDetailViewModelToCoordinatorProtocol {
+protocol ArticleDetailViewModelToCoordinatorProtocol: AnyObject {
     func closeArticleDetail()
 }
 

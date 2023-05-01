@@ -12,3 +12,4 @@
 "invalid_url_error" = "Url is invalid. Please check the url configurations.";
 "no_network_error" = "Network is not reachable";
 "parse_error" = "Unable to parse response.";
+"toast_error_prefix" = "Oh No! Error";

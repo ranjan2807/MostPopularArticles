@@ -8,11 +8,9 @@
 import Foundation
 
 class ArticleDetailViewModel {
-//    typealias T = ArticleModel
-    
     var data: ArticleDetailViewDataProtocol?
     private var bindDataClosure: ((ArticleDetailViewDataProtocol) -> Void)?
-    var delegate: ArticleDetailViewModelToCoordinatorProtocol?
+    weak var delegate: ArticleDetailViewModelToCoordinatorProtocol?
     
     init(
         data: ArticleDetailViewDataProtocol,

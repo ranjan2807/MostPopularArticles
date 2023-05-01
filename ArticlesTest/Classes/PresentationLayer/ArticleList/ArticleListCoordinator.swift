@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ArticleListViewModelToCoordinatorProtocol {
+protocol ArticleListViewModelToCoordinatorProtocol: AnyObject {
     func openArticleDetail(with model: ArticleListViewDataProtocol)
 }
 
@@ -23,7 +23,10 @@ class ArticleListCoordinator {
 
 extension ArticleListCoordinator: Coordinator {
     func start() {
-        let viewModel = ArticleListViewModel(with: self, apiService: MostPopularAPIClient())
+        let viewModel = ArticleListViewModel(
+            with: self,
+            repoService: MostPopularArticlesRepository()
+        )
         self.viewController.viewModel = viewModel
     }
 }

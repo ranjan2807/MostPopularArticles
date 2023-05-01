@@ -16,7 +16,7 @@ class ArticleListViewController: UIViewController {
     @IBOutlet weak var tblArticles: UITableView!
     @IBOutlet weak var loader: UIActivityIndicatorView!
     
-    var viewModel: ArticleListViewModelProtocol?
+    var viewModel: (any ArticleListViewModelProtocol)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
