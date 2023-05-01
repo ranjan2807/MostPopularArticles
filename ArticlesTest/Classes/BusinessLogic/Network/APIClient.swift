@@ -8,12 +8,15 @@
 import Foundation
 
 protocol APIClientProtocol {
-    func getMostPopularArticle(completionBlock: @escaping (Bool, ArticleAPIResponse?, String?) -> Void)
+    func getArticles(completionBlock: @escaping (Bool, ArticleAPIResponse?, String?) -> Void)
 }
 
-struct APIClient: APIClientProtocol {
-    func getMostPopularArticle(completionBlock: @escaping (Bool, ArticleAPIResponse?, String?) -> Void) {
-        let url = URL(string: most_popular_url + api_key)
+struct MostPopularAPIClient {
+    private let url = URL(string: most_popular_url + api_key)
+}
+
+extension MostPopularAPIClient: APIClientProtocol {
+    func getArticles(completionBlock: @escaping (Bool, ArticleAPIResponse?, String?) -> Void) {
         let request = URLRequest(url: url!)
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {

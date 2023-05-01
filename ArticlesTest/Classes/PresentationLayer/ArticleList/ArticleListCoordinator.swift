@@ -23,7 +23,7 @@ class ArticleListCoordinator {
 
 extension ArticleListCoordinator: Coordinator {
     func start() {
-        let viewModel = ArticleListViewModel(with: self, apiService: APIClient())
+        let viewModel = ArticleListViewModel(with: self, apiService: MostPopularAPIClient())
         self.viewController.viewModel = viewModel
     }
 }
