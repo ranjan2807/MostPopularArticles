@@ -54,7 +54,7 @@ extension ArticleListViewModel: ArticleListViewModelProtocol {
 
 extension ArticleListViewModel {
     private func loadMostPopularArticles() {
-        self.apiService.getMostPopularArticle { success, responseData, _ in
+        self.apiService.getArticles { success, responseData, _ in
             if !success {
                 self.data = nil
             } else {
