@@ -12,7 +12,7 @@ class MostPopularArticlesRepository {
 }
 
 extension MostPopularArticlesRepository: RepositoryProtocol {
-    func fetch(completionBlock: @escaping (Bool, [ArticleModel]?, AppError?) -> Void) {
+    func fetch(completionBlock: @escaping (Bool, [ArticleListViewDataProtocol]?, AppError?) -> Void) {
         let url = most_popular_url + api_key
         self.fetchList(with: url, completionBlock)
     }
@@ -21,10 +21,10 @@ extension MostPopularArticlesRepository: RepositoryProtocol {
 extension MostPopularArticlesRepository {
     func fetchList(
         with url: String,
-        _ completionBlock: @escaping (Bool, [ArticleModel]?, AppError?) -> Void
+        _ completionBlock: @escaping (Bool, [ArticleListViewDataProtocol]?, AppError?) -> Void
     ) {
         articleApiClient = GETAPIClient(urlString: url)
-        articleApiClient?.getList { success, apiData, error in
+        articleApiClient?.connect { success, apiData, error in
             guard success else {
                 completionBlock(false, nil, error)
                 return
@@ -42,7 +42,8 @@ extension MostPopularArticlesRepository {
             do {
                 let responseDecoded = try JSONDecoder().decode( ArticleAPIResponse.self, from: data)
                 
-                if let articleListTemp = responseDecoded.results,
+                if let articleListTemp = responseDecoded.results?
+                    .map({ ArticleViewData(articleRaw: $0) }),
                     !articleListTemp.isEmpty {
                     completionBlock(true, articleListTemp, nil)
                 } else {

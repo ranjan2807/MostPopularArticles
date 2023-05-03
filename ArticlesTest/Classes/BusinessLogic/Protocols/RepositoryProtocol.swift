@@ -8,5 +8,5 @@
 import Foundation
 
 protocol RepositoryProtocol {
-    func fetch(completionBlock: @escaping (Bool, [ArticleModel]?, AppError?) -> Void)
+    func fetch(completionBlock: @escaping (Bool, [ArticleListViewDataProtocol]?, AppError?) -> Void)
 }

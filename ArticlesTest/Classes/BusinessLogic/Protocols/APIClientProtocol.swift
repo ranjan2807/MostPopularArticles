@@ -8,7 +8,7 @@
 import Foundation
 
 protocol APIClientProtocol {
-    func getList(completionBlock: @escaping (Bool, Data?, AppError?) -> Void)
+    func connect(completionBlock: @escaping (Bool, Data?, AppError?) -> Void)
 }
 
 extension APIClientProtocol {
