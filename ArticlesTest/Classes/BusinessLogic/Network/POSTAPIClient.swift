@@ -18,7 +18,7 @@ struct POSTAPIClient {
 }
 
 extension POSTAPIClient: APIClientProtocol {
-    func getList(completionBlock: @escaping (Bool, Data?, AppError?) -> Void) {
+    func connect(completionBlock: @escaping (Bool, Data?, AppError?) -> Void) {
         guard let url = URL(string: self.urlString) else {
             completionBlock(false, nil, .invalidURL)
             return

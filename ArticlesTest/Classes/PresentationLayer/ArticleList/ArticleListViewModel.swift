@@ -81,7 +81,7 @@ extension ArticleListViewModel {
                 self.data = nil
                 self.dataError = errorMsg?.description
             } else {
-                self.articleListRaw = responseData?.map { ArticleViewData(articleRaw: $0) }
+                self.articleListRaw = responseData
                 self.data = self.articleListRaw
             }
         }
