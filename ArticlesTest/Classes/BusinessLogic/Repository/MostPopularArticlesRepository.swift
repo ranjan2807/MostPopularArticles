@@ -8,23 +8,24 @@
 import Foundation
 
 class MostPopularArticlesRepository {
-    private var articleApiClient: APIClientProtocol?
+    private var articleApiClient: APIClientProtocol
+    private var parser: any AppParserProtocol
+    
+    init(articleApiClient: APIClientProtocol, parser: any AppParserProtocol) {
+        self.articleApiClient = articleApiClient
+        self.parser = parser
+    }
 }
 
 extension MostPopularArticlesRepository: RepositoryProtocol {
     func fetch(completionBlock: @escaping (Bool, [ArticleListViewDataProtocol]?, AppError?) -> Void) {
-        let url = most_popular_url + api_key
-        self.fetchList(with: url, completionBlock)
+        self.fetchList(completionBlock)
     }
 }
 
 extension MostPopularArticlesRepository {
-    func fetchList(
-        with url: String,
-        _ completionBlock: @escaping (Bool, [ArticleListViewDataProtocol]?, AppError?) -> Void
-    ) {
-        articleApiClient = GETAPIClient(urlString: url)
-        articleApiClient?.connect { success, apiData, error in
+    func fetchList( _ completionBlock: @escaping (Bool, [ArticleListViewDataProtocol]?, AppError?) -> Void) {
+        articleApiClient.connect { success, apiData, error in
             guard success else {
                 completionBlock(false, nil, error)
                 return
@@ -32,27 +33,25 @@ extension MostPopularArticlesRepository {
             
             guard let data = apiData,
                   let dataStr = String(data: data, encoding: .utf8) else {
-                print(AppError.generic)
-                completionBlock(false, nil, .generic)
+                completionBlock(false, nil, .noDataFound)
                 return
             }
             
             print(dataStr)
+            let parserResponse = self.parser.start(with: data)
             
-            do {
-                let responseDecoded = try JSONDecoder().decode( ArticleAPIResponse.self, from: data)
-                
-                if let articleListTemp = responseDecoded.results?
-                    .map({ ArticleViewData(articleRaw: $0) }),
-                    !articleListTemp.isEmpty {
-                    completionBlock(true, articleListTemp, nil)
-                } else {
-                    completionBlock(false, nil, .noDataFound)
-                }
-            } catch {
-                completionBlock(false, nil, .parseError(error.localizedDescription))
-                print(error.localizedDescription)
+            if let error = parserResponse.error {
+                completionBlock(false, nil, error)
+                return
             }
+            
+            guard let parsedData = parserResponse.parseData as? [ArticleListViewDataProtocol]
+            else {
+                completionBlock(false, nil, .parseError(AppError.noDataFound.description))
+                return
+            }
+            
+            completionBlock(true, parsedData, nil)
         }
     }
 }

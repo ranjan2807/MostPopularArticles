@@ -8,5 +8,6 @@
 import Foundation
 
 protocol RepositoryProtocol {
-    func fetch(completionBlock: @escaping (Bool, [ArticleListViewDataProtocol]?, AppError?) -> Void)
+    associatedtype data
+    func fetch(completionBlock: @escaping (Bool, data?, AppError?) -> Void)
 }
