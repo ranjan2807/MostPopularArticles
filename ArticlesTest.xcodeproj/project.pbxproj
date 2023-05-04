@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2225C97B2A02D9E50070A486 /* AppParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225C97A2A02D9E50070A486 /* AppParserProtocol.swift */; };
+		2225C97D2A02DAD50070A486 /* MostPopularArticleParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225C97C2A02DAD50070A486 /* MostPopularArticleParser.swift */; };
 		228B9C4329FD3A8B007BBE36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228B9C4229FD3A8B007BBE36 /* AppDelegate.swift */; };
 		228B9C4529FD3A8B007BBE36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228B9C4429FD3A8B007BBE36 /* SceneDelegate.swift */; };
 		228B9C4A29FD3A8B007BBE36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 228B9C4829FD3A8B007BBE36 /* Main.storyboard */; };
@@ -61,6 +63,8 @@
 /* Begin PBXFileReference section */
 		156C58D8EAE66CE85C7C88CB /* Pods-ArticlesTest-ArticlesTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArticlesTest-ArticlesTestUITests.release.xcconfig"; path = "Target Support Files/Pods-ArticlesTest-ArticlesTestUITests/Pods-ArticlesTest-ArticlesTestUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1B55F4F7E4D6FA6AF3E7B99B /* Pods_ArticlesTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArticlesTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2225C97A2A02D9E50070A486 /* AppParserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppParserProtocol.swift; sourceTree = "<group>"; };
+		2225C97C2A02DAD50070A486 /* MostPopularArticleParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularArticleParser.swift; sourceTree = "<group>"; };
 		228B9C3F29FD3A8B007BBE36 /* ArticlesTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArticlesTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		228B9C4229FD3A8B007BBE36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		228B9C4429FD3A8B007BBE36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +155,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		2225C9792A02D9BE0070A486 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				2225C97C2A02DAD50070A486 /* MostPopularArticleParser.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
 		228B9C3629FD3A8B007BBE36 = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +243,7 @@
 		22B69CDF29FDDF500072EE25 /* BusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
+				2225C9792A02D9BE0070A486 /* Parser */,
 				22B69D0829FFD34F0072EE25 /* Protocols */,
 				22B69D0529FFD2FB0072EE25 /* Repository */,
 				22B69CE029FDDF500072EE25 /* Network */,
@@ -318,6 +331,7 @@
 			children = (
 				22B69D0B29FFD38C0072EE25 /* RepositoryProtocol.swift */,
 				22B69D0929FFD3670072EE25 /* APIClientProtocol.swift */,
+				2225C97A2A02D9E50070A486 /* AppParserProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -563,9 +577,11 @@
 				22B69D0229FF8E990072EE25 /* Constant.swift in Sources */,
 				22B69D0429FFA7270072EE25 /* AppError.swift in Sources */,
 				228B9C8829FD5A10007BBE36 /* Localization.swift in Sources */,
+				2225C97D2A02DAD50070A486 /* MostPopularArticleParser.swift in Sources */,
 				22B69D2B29FFECCE0072EE25 /* Environments.swift in Sources */,
 				22B69CF929FDDF500072EE25 /* ArticleDetailCoordinator.swift in Sources */,
 				22B69D2F29FFFC5A0072EE25 /* Extensions.swift in Sources */,
+				2225C97B2A02D9E50070A486 /* AppParserProtocol.swift in Sources */,
 				22B69D0C29FFD38C0072EE25 /* RepositoryProtocol.swift in Sources */,
 				22B69D432A0121760072EE25 /* POSTAPIClient.swift in Sources */,
 				22B69CFD29FDE3260072EE25 /* ArticleResponseModel.swift in Sources */,

@@ -12,7 +12,7 @@ class ArticleListViewModel {
     private var articleListRaw: [ArticleListViewDataProtocol]?
     private var dataBindClosure: (([ArticleListViewDataProtocol]) -> Void)?
     private var dataErrorBindClosure: ((String) -> Void)?
-    private var articleRepo: RepositoryProtocol
+    private var articleRepo: any RepositoryProtocol
     
     var data: [ArticleListViewDataProtocol]? {
         didSet {
@@ -32,7 +32,7 @@ class ArticleListViewModel {
     
     init(
         with coordinator: ArticleListViewModelToCoordinatorProtocol,
-        repoService: RepositoryProtocol
+        repoService: any RepositoryProtocol
     ) {
         self.delegate = coordinator
         self.articleRepo = repoService
@@ -81,7 +81,9 @@ extension ArticleListViewModel {
                 self.data = nil
                 self.dataError = errorMsg?.description
             } else {
-                self.articleListRaw = responseData
+                if let articleListRaw = responseData as? [ArticleListViewDataProtocol] {
+                    self.articleListRaw = articleListRaw
+                }
                 self.data = self.articleListRaw
             }
         }
