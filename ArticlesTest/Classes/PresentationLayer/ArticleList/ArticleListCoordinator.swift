@@ -23,12 +23,15 @@ class ArticleListCoordinator {
 
 extension ArticleListCoordinator: Coordinator {
     func start() {
-        let url = most_popular_url + api_key
-        let apiClient = GETAPIClient(urlString: url)
+        let url = AppUrl.most_popular_article
+        let apiClient = GETAPIClient(urlString: url.value)
         let parser = MostPopularArticleParser()
-        let repo = MostPopularArticlesRepository(articleApiClient: apiClient, parser: parser)
+        let repo = MostPopularArticlesRepository (
+            articleApiClient: apiClient,
+            parser: parser
+        )
         
-        let viewModel = ArticleListViewModel(
+        let viewModel = ArticleListViewModel (
             with: self,
             repoService: repo
         )

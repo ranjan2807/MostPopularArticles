@@ -6,11 +6,3 @@
 //
 
 import Foundation
-
-let most_popular_url = Environment.networkProtocol +
-                        "://" +
-                        Environment.baseURL +
-                        Environment.mostPopularArticleEndpoint +
-                        "?api-key="
-
-let api_key = Environment.apiKey
